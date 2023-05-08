@@ -1,0 +1,9 @@
+# Initial thoughts
+    # Power of two: n is of form 0b1000...
+    # n - 1 is of form 0b0111...
+    # If n is a power of two, n & (n - 1) will be of the form 0b000...
+    # Therefore, powers of two are the negation of n & (n - 1)
+    # Include n and to screen out negative numbers
+class Solution:
+    def isPowerOfTwo(self, n: int) -> bool:
+        return not (n & n - 1) and n
