@@ -20,5 +20,4 @@ class Solution:
                 DP2.add(i+j)
             DP = DP2
 
-        print(DP)
         return t in DP
