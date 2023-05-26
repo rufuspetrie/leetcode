@@ -1,5 +1,7 @@
-# Notes
-    # Greedy approach: advance and increment remaining jumps upward when you hit a higher value
+# Initial thoughts
+    # Keep track of jumps remaining and current index
+    # Advance pointer through array and update jump count if greater than current value
+    # If pointer advances past len(array) - 1, return true
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
         jumps = nums[0]
