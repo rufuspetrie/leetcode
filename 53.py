@@ -12,4 +12,3 @@ class Solution:
             max_sum = max(current_sum, max_sum)
 
         return max_sum
-                
