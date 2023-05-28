@@ -1,8 +1,6 @@
-# Notes
-    # Have left pointer and right pointer
-    # While sum of subarray is positive, advance right pointer only
-    # Once subarray becomes negative, move left pointer to next positive number
-    # pointers/while too slow so need to use iterative approach
+# Initial thoughts
+    # Any positive prefix adds to sum, so just accumulate sum while positive
+    # Compare max at each step
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         current_sum = 0
