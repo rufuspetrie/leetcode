@@ -12,7 +12,7 @@ class Solution:
             s2 = intervals[i][0]
             if e1 > s2:
                 j = i
-                overlaps = 1
+                overlaps = 0
                 while j < len(intervals) and intervals[j][0] < e1:
                     overlaps += 1
                     j += 1
