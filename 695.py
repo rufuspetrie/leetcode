@@ -1,12 +1,16 @@
+# Initial thoughts
+    # Iterate through grid and search if not in explored
+    # For BFS/DFS, return number of nodes visited
+    # Compare with max after each search
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         explored = set()
         rows = len(grid)
         cols = len(grid[0])
 
-        # If out of bounds/explored/ocean, return 0
         def dfs(r, c):
-            if r < 0 or c < 0 or r >= rows or c >= cols or (r,c) in explored or grid[r][c] == 0:
+            if r < 0 or c < 0 or r >= rows or c >= cols \
+            or (r,c) in explored or grid[r][c] == 0:
                 return 0
             else:
                 explored.add((r,c))
