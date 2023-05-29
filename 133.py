@@ -1,8 +1,8 @@
 # Initial thoughts
     # Probably similar to making deep copy of linked list
-    # Traverse graph once to extract the nodes
-    # Traverse graph again to extact nodes into a hash
-    # Traverse copy of graph and use hash to update neighbors
+    # Make hash containing copies of nodes from the graph
+    # Iterate through hash and update values with corresponding
+        # copies from the key's neighbors
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
         if not node: return None
