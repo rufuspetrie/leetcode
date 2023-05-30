@@ -5,35 +5,36 @@
     # Graph traversal from all points takes (m*n)^2, so need to go faster
     # Instead of starting from each point, can alter traversal conditions and
         # start from each node on the border of the Pacific/Atlantic
+    # Also DFS appears to work better
 class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
         directions = [[1,0], [-1,0], [0,-1], [0,1]]
         rows = len(heights)
         cols = len(heights[0])
 
-        def bfs(r,c):
-            pac = False
-            atl = False
-            visited = set()
-            queue = deque()
-            queue.append((r,c))
+        def dfs(r, c, visited, prev_h):
+            if r not in range(rows) or c not in range(cols) \
+            or (r,c) in visited or heights[r][c] < prev_h:
+                return
+            visited.add((r,c))
+            dfs(r + 1, c, visited, heights[r][c])
+            dfs(r - 1, c, visited, heights[r][c])
+            dfs(r, c + 1, visited, heights[r][c])
+            dfs(r, c - 1, visited, heights[r][c])
 
-            while queue and (not pac or not atl):
-                cr, cc = queue.popleft()
-                if cr == 0 or cc == 0: pac = True
-                if cr == rows - 1 or cc == cols - 1: atl = True
-                visited.add((cr,cc))
-                for dr, dc in directions:
-                    xr, xc = cr + dr, cc + dc
-                    if xr in range(rows) and xc in range(cols) \
-                    and (xr, xc) not in visited and heights[xr][xc] <= heights[cr][cc]:
-                        queue.append((xr,xc))
+        pac = set()
+        atl = set()
 
-            return True if (pac and atl) else False
+        for r in range(rows):
+            dfs(r, 0, pac, heights[r][0])
+            dfs(r, cols - 1, atl, heights[r][cols - 1])
+
+        for c in range(cols):
+            dfs(0, c, pac, heights[0][c])
+            dfs(rows - 1, c, atl, heights[rows - 1][c])
 
         res = []
-        for r in range(rows):
-            for c in range(cols):
-                if bfs(r,c): res.append([r,c])
-        
+        for i in pac:
+            if i in atl:
+                res.append(i)
         return res
