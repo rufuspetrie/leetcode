@@ -1,27 +1,29 @@
 # Initial thoughts
-    # Probably similar to deep copy of linked list question
-    # Iterate through graph once to extract nodes into some data structure
-    # At the same time, keep hash that corresponds between original nodes and copies
-    # Iterate through graph again to populate neighbors, but use copies in hash
-    # Easier to do DFS because of some weird keyerror stuff
+    # Probably similar to making deep copy of linked list
+    # Make hash containing copies of nodes from the graph
+    # Iterate through hash and update values with corresponding
+        # copies from the key's neighbors
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
+        if not node: return None
         copies = {}
 
         def dfs(node):
-            if node in copies:
-                return copies[node]
-            copy = Node(node.val)
-            copies[node] = copy
-            for neighbor in node.neighbors:
-                copy.neighbors.append(dfs(neighbor))
-            return copy
+            copies[node] = Node(node.val)
+            for i in node.neighbors:
+                if i and i not in copies:
+                    dfs(i)
 
-        if node: return dfs(node)
-        return None
-'''
+        dfs(node)
+        for o, c in copies.items():
+            for i in o.neighbors:
+                copies[o].neighbors.append(copies[i])
+            
+        return copies[node]
+"""
+# Definition for a Node.
 class Node:
     def __init__(self, val = 0, neighbors = None):
         self.val = val
         self.neighbors = neighbors if neighbors is not None else []
-'''
+"""
