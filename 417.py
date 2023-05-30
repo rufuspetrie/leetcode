@@ -17,10 +17,8 @@ class Solution:
             or (r,c) in visited or heights[r][c] < prev_h:
                 return
             visited.add((r,c))
-            dfs(r + 1, c, visited, heights[r][c])
-            dfs(r - 1, c, visited, heights[r][c])
-            dfs(r, c + 1, visited, heights[r][c])
-            dfs(r, c - 1, visited, heights[r][c])
+            for i, j in directions:
+                dfs(r + i, c + j, visited, heights[r][c])
 
         pac = set()
         atl = set()
