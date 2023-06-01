@@ -1,6 +1,6 @@
 # Initial thoughts
     # Can just do DFS from every node
-    # Could also just do Union Find and could nodes with degree 1
+    # Could also just do Union Find and return nodes with degree 1
 class Solution:
     def countComponents(self, n: int, edges: List[List[int]]) -> int:
         parents = [i for i in range(n)]
@@ -13,7 +13,6 @@ class Solution:
                 e = parents[v]
             return parent
 
-        # Attempt to add edge to Union Find
         def union(v1, v2):
             p1 = find_parent(v1)
             p2 = find_parent(v2)
