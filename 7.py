@@ -1,8 +1,6 @@
 # Initial thoughts
-    # Can extract smallest bit with &1
-    # Can rightshift to delete former smallest big
-    # Can |(b<<31) to insert the smallest bit at the beginning of the number
-    # Note: for python reasons, easier to just treat number as decimal instead of binary
+    # Can't use binary because reversed binary doesn't imply reverse decimal
+    # Therefore, just use solve using modulus/remainders
 class Solution:
     def reverse(self, x: int) -> int:
         int_min = -1 * 2**31
