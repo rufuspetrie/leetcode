@@ -1,6 +1,6 @@
 # Initial thoughts
     # Can't use binary because reversed binary doesn't imply reverse decimal
-    # Therefore, just use solve using modulus/remainders
+    # Therefore, just solve using modulus/remainders
 class Solution:
     def reverse(self, x: int) -> int:
         int_min = -1 * 2**31
