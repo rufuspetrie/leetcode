@@ -25,6 +25,6 @@ class Solution:
                 sell = dfs(i + 2, not buying) + prices[i]
                 DP[(i, buying)] = max(sell, cooldown)
             
-            return DP[(i,buying)]
+            return DP[(i, buying)]
 
         return dfs(0, 1)
