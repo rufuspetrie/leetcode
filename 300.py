@@ -8,7 +8,7 @@
     # Start populating a DP with elements of the array
     # If the next element is greater than the final one, insert it
     # If it's less, find the index where it would be in sorted order
-        # and replace the element there
+        # and replace the element there (this is what bisect_left does)
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
         DP = []
