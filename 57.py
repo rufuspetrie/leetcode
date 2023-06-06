@@ -9,6 +9,8 @@
     # If the interval is behind the new one, add it to the res
     # If the interval is ahead of the new one, add new to res, return rest
     # If there's overlap, merge current intervals and continue the process
+# Moral of the story: index-by-index solutions easier than monkeying around
+    # with entire intervals at once
 class Solution:
     def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
         res = []
