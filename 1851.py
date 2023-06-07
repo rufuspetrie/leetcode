@@ -22,11 +22,11 @@ class Solution:
         for q in sorted(queries):
             while idx < len(intervals) and intervals[idx][0] <= q:
                 l, r = intervals[idx]
-                heapq.heappush(heap, (r - l + 1, r))
+                heappush(heap, (r - l + 1, r))
                 idx += 1
 
             while heap and heap[0][1] < q:
-                heapq.heappop(heap)
+                heappop(heap)
             if heap:
                 res[q] = heap[0][0]
             else:
