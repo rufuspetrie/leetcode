@@ -1,8 +1,5 @@
 # Initial thoughts
-    # Few possibilities for greedy algorithm
-        # station with most gas
-        # station with adjacent having lowest cost[i+1]
-        # station with max(gas - cost[i+1])
+    # Greedy: could start at lowest cost, most gas, greatest difference
 # Better approach
     # Each of these guesses may fail, so need to test multiple indexes
     # Notice that this problem boils down to keeping a positive prefix sum
