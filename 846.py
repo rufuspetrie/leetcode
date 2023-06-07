@@ -22,8 +22,6 @@ class Solution:
                 count[i] -= 1
                 
                 if count[i] == 0:
-                    if i != heap[0]:
-                        return False
                     heappop(heap)
 
         return True
