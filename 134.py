@@ -4,11 +4,13 @@
         # station with adjacent having lowest cost[i+1]
         # station with max(gas - cost[i+1])
 # Better approach
-    # Each of these guesses may fail, so need to test all indexes
+    # Each of these guesses may fail, so need to test multiple indexes
     # Notice that this problem boils down to keeping a positive prefix sum
         # for the entire array
     # Note that if a certain start point fails at a particular index, all
-        # start points in that interval will also fail
+        # start points in that interval will also fail (Kadane's algorithm)
+    # Clarification: gas[i] = cost to travel to i + 1, not cost to travel to
+        # i from i - 1
 class Solution:
     def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
         if sum(gas) < sum(cost): return -1
