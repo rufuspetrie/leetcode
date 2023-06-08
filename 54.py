@@ -1,6 +1,7 @@
 # Initial thoughts
     # Can just go in order while left < right, top < bottom
-    # Need break statement in the middle to make sure we didn't finish
+    # Need break statement in the middle to avoid blowing up on
+        # single row/column matrices
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         res = []
