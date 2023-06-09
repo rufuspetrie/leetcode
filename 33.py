@@ -1,5 +1,5 @@
 # Notes
-    # For this problem, it's easier just to think how the array because two increasing subarrays
+    # For this problem, it's easier just to think how the array becomes two increasing subarrays
         # with an inflection point potentially on different sides of mid
     # If coded correctly, this approach generalizes to situations where the subarrays aren't
         # rotated, and it requires significantly less code
