@@ -14,17 +14,18 @@ class Solution:
         stack = []
         max_area = 0
 
-        # Add areas found when popping elements
+        # Compute areas found when popping elements
         for i, h in enumerate(heights):
-            if not stack: stack.append((i, h))
+            if not stack: 
+                stack.append((i, h))
+                continue
             ix = i
             while stack and h < stack[-1][1]:
-                ix, hx = stack[-1]
+                ix, hx = stack.pop()
                 max_area = max(max_area, (i - ix) * hx)
-                stack.pop()
             stack.append((ix, h))
 
-        # Add areas from final stack
+        # Compute areas from final stack
         n = len(heights)
         while stack:
             i, h = stack.pop()
