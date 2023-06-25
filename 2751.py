@@ -2,6 +2,8 @@
     # Much easier to just generate an array of indexes and reference the arrays
         # than make a list of tuples
     # In particular, just modify the health in the original array after each collision
+    # What confused me was pushing robots headed left to the stack when it was empty,
+        # but we can just ignore these
 class Solution:
     def survivedRobotsHealths(self, positions: List[int], healths: List[int], directions: str) -> List[int]:
         n = len(positions)
