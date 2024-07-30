@@ -11,19 +11,16 @@ public:
     
     void push(int val) {
         stk.push(val);
-        if(min_stk.empty() || val < min_stk.top().first){
-            min_stk.push({val, 1});
+        if(min_stk.empty() || val < min_stk.top()){
+            min_stk.push(val);
         }
-        else if(val == min_stk.top().first){
-            min_stk.top().second++;
+        else if(val == min_stk.top()){
+            min_stk.push(val);
         }
     }
     
     void pop() {
-        if(stk.top() == min_stk.top().first){
-            min_stk.top().second--;
-        }
-        if(min_stk.top().second == 0){
+        if(stk.top() == min_stk.top()){
             min_stk.pop();
         }
         stk.pop();
@@ -34,11 +31,11 @@ public:
     }
     
     int getMin() {
-        return min_stk.top().first;
+        return min_stk.top();
     }
 private:
     stack<int> stk;
-    stack<pair<int, int>> min_stk;
+    stack<int> min_stk;
 };
 
 /**
